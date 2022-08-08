@@ -1,0 +1,560 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.containerPageWrapper {
+    height: 100%;
+    display: table;
+  }
+  
+  .containerPageWrapper .pageInner {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    box-shadow: 0px 5px 12px 5px rgb(0 0 0 / 14%);
+  }
+  
+  .elWrapper {
+    width: 360px;
+    padding: 15px;
+    margin: 15px auto;
+    background-color: #fff;
+    box-shadow: 0px 5px 12px 5px rgb(0 0 0 / 14%);
+  }
+  
+  @media (max-width: 991px) {
+    .elWrapper {
+      width: 345px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .elWrapper {
+      width: 290px;
+      margin: 30px auto;
+    }
+  }
+  
+  .elWrapper:hover .boxDownHbg {
+    left: 0px;
+  }
+  
+  .elWrapper:hover .price {
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: #818181;
+    display: none;
+  }
+  
+  .elWrapper:hover .addToCart {
+    left: 50%;
+  }
+  
+  .elWrapper:hover .imageInboxUp {
+    webkit-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+    filter: progid:DXImageTransform.Microsoft.Blur(pixelradius='7', shadowopacity='0.0');
+    opacity: 0.4;
+  }
+  
+  .elWrapper:hover .infoInner {
+    display: none;
+  }
+  
+  .elWrapper:hover .descriptionvaccinationasize {
+    -webkit-transition-delay: 300ms;
+    -o-transition-delay: 300ms;
+    transition-delay: 300ms;
+    bottom: 50px;
+    opacity: 1;
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: left;
+  }
+  .elWrapper:hover .descriptionvaccinationasize::-webkit-scrollbar {
+    width: 2px;
+    height: 10px;
+    margin-right: 2%;
+  }
+  
+  .elWrapper:hover .descriptionvaccinationasize::-webkit-scrollbar-thumb {
+    background: #3f96cd;
+  }
+  .elWrapper .boxDown {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .elWrapper .boxUp {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .elWrapper .imageInboxUp {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+  }
+  .descdescriptionvaccinationasize{
+    margin-bottom: 15px;
+  }
+  .descdescriptionvaccinationasize div{
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: black;
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  .boxDownHbg {
+    -webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    width: 660px;
+    height: 100%;
+    background-color: #3f96cd;
+    position: absolute;
+    left: -659px;
+  }
+  
+  .boxDownHbg .boxDownHbgInner {
+    width: 50%;
+    height: 100%;
+    background-color: #009688;
+  }
+  
+  .infoInner {
+    -webkit-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    position: absolute;
+    width: 100%;
+    bottom: 25px;
+  }
+  
+  .infoInner .infoInnerPNname,
+  .infoInner .infoInnerPCompany {
+    display: block;
+  }
+  
+  .infoInner .infoInnerPNname {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    color: #252525;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .infoInner .infoInnerPCompany {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #8c8c8c;
+  }
+  
+  .descriptionvaccinationasize {
+    -webkit-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 300ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    position: absolute;
+    width: 100%;
+    bottom: -20px;
+    font-family: 'PT Sans', sans-serif;
+    color: #828282;
+    opacity: 0;
+  }
+  
+  .descriptionvaccinationasize .sondescriptionvaccinationasize {
+    color: #252525;
+  }
+  
+  .cartPrixVaccin {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .cartPrixVaccin .price {
+    -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-delay: 100ms;
+    -o-transition-delay: 100ms;
+    transition-delay: 100ms;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #252525;
+  }
+  
+  .cartPrixVaccin .addToCart {
+    -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+    /* ease-out */
+    -webkit-transition-delay: 100ms;
+    -o-transition-delay: 100ms;
+    transition-delay: 100ms;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 110%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .cartPrixVaccin .addToCart .txtVaccin {
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  
+.containerSearch{
+    width: 98%;
+    margin: 1%;
+    border: 3px solid #1976d2;
+    padding: 1%;
+    border-radius: 8px;
+}
+.inputSearch input, .inputSearch select{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #1976d2;
+    color: #1976d2;
+    padding-left: 1%;
+    margin-bottom: 5px;
+}
+.inputSearch input:focus, .inputSearch select:focus,.selectinputSearch select:focus{
+    outline: none;
+}
+.inputSearch input::placeholder{
+    color: #1976d2;
+}
+.btnAddinputSearch button{
+    width: 100%;
+    height: 35px;
+    background-color: #1976d2;
+    color: white;
+    margin-bottom: 5px;
+}
+.btnAddinputSearch button:hover{
+    background-color: #0d47a1;
+}
+.btninputSearch ul{
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.btninputSearch ul li{
+    list-style: none;
+    width: 50%;
+}
+.btninputSearch ul li button{
+    width: 100%;
+    height: 35px;
+    color: white;
+    margin-bottom: 5px;
+    border: 2px solid white;
+}
+.btninputSearch ul li .btn-search{
+    background-color: #1976d2;
+}
+.btninputSearch ul li .btn-search:hover{
+    background-color: #0d47a1;
+}
+.btninputSearch ul li .btn-actualiser{
+    background-color: #009688;
+}
+.btninputSearch ul li .btn-actualiser:hover{
+    background-color: #00695c;
+}
+.pagination{
+    width: 98%;
+    margin: 1%;
+    padding: 1%;
+    border: 2px solid #283593;
+    border-radius: 5px;
+}
+.pagination ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.pagination ul li{
+    list-style: none;
+}
+.pagination ul .li1{
+    width: 80%;
+}
+.pagination ul .li1 select{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: #3f51b5;
+}
+.pagination ul .li1 select{
+    outline: none;
+}
+.pagination ul .li2{
+    width: 20%;
+}
+.pagination ul .li2 button{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: white;
+    background-color: #3f51b5;
+}
+.pagination ul .li2 button:hover{
+    background-color: #283593;
+}
+.miniTitleInscriptionPatient{
+    width: 100%;
+    background-color: #ffa726;
+    padding: 1%;
+    font-size: 15px;
+    font-weight: 600;
+}
+.ulAddRdvRdvPatient{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #607d8b;
+    color: white;
+    text-align: center;
+    min-height: 35px;
+    line-height: 35px;
+    font-size: 17px;
+    border-top: 1px solid white;
+}
+.ulAddRdvRdvPatient li{
+    list-style: none;
+}
+.ulAddRdvRdvPatient .li1{
+    width: 10%;
+    background-color: #009688;
+    cursor: pointer;
+}
+.ulAddRdvRdvPatient .li1:hover{
+    background-color: #00695c;
+}
+.ulAddRdvRdvPatient .li2{
+    width: 80%;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.ulAddRdvRdvPatient .li3{
+    width: 10%;
+}
+ion-icon {
+    font-size: 45px;
+    font-size: 29px;
+    margin-top: 5px;
+}
+.descriptionInscriptionPatient{
+    width: 100%;
+    background-color: #ffa726;
+    padding: 1%;
+    font-size: 13px;
+}
+.sondescriptionInscriptionPatient{
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+}
+.descriptionInscriptionPatient .des{
+    margin-bottom: 10px;
+}
+.descriptionInscriptionPatient .spantmp{
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.imageVaccinodromeTmp{
+    text-align: center;
+    margin-top: 2%;
+}
+.imageVaccinodromeTmp img{
+    max-width: 200px;
+    max-height: 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+.champsLoginPatient{
+    margin: 20px;
+}
+.champsRegisterLoginPatient{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+    padding: 5px 0;
+    color: #222;
+    margin-bottom: 31px;
+    font-family: 'Roboto', sans-serif;
+}
+.champsRegisterLoginPatient:focus{
+    outline: none;
+}
+
+.mdptextLoginPatient{
+    width: 100%;
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: white;
+    font-weight: 600;
+}
+.mdpgourpLoginPatient{
+    margin-top: -24px;
+}
+.champsPatient{
+    width: 98%;
+    height: 35px;
+    margin: 1%;
+    padding-left: 2%;
+    border: none;
+    border-bottom: 2px solid #607d8b;
+}
+.champsPatient::placeholder{
+    border-bottom: 2px solid #607d8b;
+}
+.champsPatient:focus{
+    outline: none;
+}
+.champsAddRdvDemande ul{
+    width: 98%;
+    margin: 1%;
+    padding: 0;
+    font-weight: 500;
+}
+.champsAddRdvDemande ul .li1{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    padding-left: 1%;
+    text-transform: uppercase;
+    color: white;
+}
+.champsAddRdvDemande ul .li2{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    text-transform: uppercase;
+    color: white;
+}
+.champsAddRdvDemande ul .li2 input,.champsAddRdvDemande ul .li2 select,.champsAddRdvDemande ul .li2 textarea{
+    width: 98%;
+    list-style: none;
+    margin: 1%;
+    background-color: white;
+    color: #1565c0;
+    padding-left: 1%;
+}
+.champsAddRdvDemande ul .li3{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    text-transform: uppercase;
+    color: white;
+}
+.champsAddRdvDemande ul .li3 button{
+    width: 98%;
+    list-style: none;
+    margin: 1%;
+    background-color: #ffc107;
+}
+.champsAddRdvDemande ul .li3 button:hover{
+    background-color: #ffa000;
+}
+.btn-enregistrement{
+    width: 98%;
+    margin: 1%;
+    min-height: 35px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #00695c;
+    border-radius: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.btn-enregistrement:hover{
+    background-color: #00695c;
+}

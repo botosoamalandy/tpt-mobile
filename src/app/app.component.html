@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-header *ngIf="!showSplash">
+    <ion-toolbar color="white">
+      <ion-title>
+        <a class="clickable">
+          <img src="assets/img/logo.jpg" />
+        </a>
+      </ion-title>
+
+      <ion-button *ngIf="getVeifIfUserisConnected()" slot="end" routerLink="/user-profile" color="white" shape="circle">
+        <ion-icon  slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button *ngIf="getVeifIfUserisConnected()" slot="end" routerLink="/user-rdv" color="white" shape="circle">
+        <ion-icon  slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+
+      <ion-buttons slot="end" >
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-menu side="end" menuId="first" contentId="main" *ngIf="getVeifIfUserisConnected()">
+    <ion-toolbar color="white"></ion-toolbar>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/user-profile">Mon profile</ion-item>
+        <ion-item routerLink="/user-rdv">Mes rendez-vous</ion-item>
+        <ion-item color="danger" button (click)="logout()">Déconnexion</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-menu side="end" menuId="first" contentId="main" *ngIf="!getVeifIfUserisConnected()">
+    <ion-toolbar color="white"></ion-toolbar>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/home">Accueil</ion-item>
+        <ion-item routerLink="/login">Connexion</ion-item>
+        <ion-item routerLink="/inscription">Inscription</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+
+  <ion-content [scrollEvents]="true">
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
+
+  <ion-footer *ngIf="!showSplash">
+    <div class="div_footer">
+      <span> &copy; RDVVaksiny, All Right Reserved. </span>
+      <span> Copyright 2022 </span>
+    </div>
+  </ion-footer>
+</ion-app>

@@ -1,0 +1,70 @@
+.login-container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 2%;
+    position: relative; 
+    font-size: 13px;
+    line-height: 1.8;
+    color: #fff;
+    background-image: url("../../assets/img/body-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-position: center center;
+}
+.login_principal{
+    max-width: 500px;
+    box-shadow: 0px 5px 12px 5px rgb(0 0 0 / 14%);
+    padding: 5%;
+    margin: 10% auto;
+    border-radius: 10px;
+    background-color: white;
+}
+.login_title{
+    color: #222;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    padding: 0;
+    text-transform: uppercase;
+}
+.form-group-champs{
+    width: 100%;
+    padding-top: 10px;
+}
+.form-group-champs input{
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    height: 60px;
+    transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    color: #000000b8;
+    border: none;
+    border-bottom: 2px solid #ebebeb;
+}
+.form-group-champs input::placeholder{
+    color: #000000b8 !important;
+}
+.form-group-champs input:focus{
+    outline: none;
+    border-bottom: 2px solid #00695c;
+    color: #000000b8;
+}
+.btn-connexion{
+    width: 100%;
+    min-height: 35px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #00695c;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+.btn-connexion:hover{
+    background-color: #00695c;
+}

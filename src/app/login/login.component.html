@@ -1,0 +1,12 @@
+<div class="login-container">
+  <div class="login_principal">
+      <h1 class="login_title">CONNEXION PATIENT</h1>
+      <div class="form-group-champs">
+        <input type="text" [(ngModel)]="numero" placeholder="Numéro de téléphone" >
+      </div>
+      <div class="form-group-champs">
+        <input type="password" [(ngModel)]="mdp" placeholder="Mot de passe" >
+      </div>
+      <button class="btn-connexion" (click) ="connect()">Connexion</button>
+  </div>
+</div>

@@ -1,0 +1,415 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.ulBtnRdv{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.ulBtnRdv li{
+    list-style: none;
+    width: 50%;
+}
+.ulBtnRdvTmp{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.ulBtnRdvTmp li{
+    list-style: none;
+    width: calc(100% / 3);
+}
+.btn-voir{
+    width: 100%;
+    height: 30px;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+.btn-voir:hover{
+    background-color: #1565c0;
+}
+.btn-supprimer{
+    width: 100%;
+    height: 30px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+.btn-supprimer:hover{
+    background-color: #c62828
+}
+.btn-restaurer{
+    width: 100%;
+    height: 30px;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+.btn-restaurer:hover{
+    background-color: #1565c0
+}
+.container-pagination{
+    padding-left: 20px;
+}
+.containerSearch{
+    width: 98%;
+    margin: 1%;
+    border: 3px solid #3f51b5;
+    padding: 1%;
+    border-radius: 8px;
+}
+.inputSearch input, .inputSearch select{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: #3f51b5;
+    padding-left: 1%;
+    margin-bottom: 5px;
+}
+.inputSearch input:focus, .inputSearch select:focus,.selectinputSearch select:focus{
+    outline: none;
+}
+.inputSearch input::placeholder{
+    color: #3f51b5;
+}
+.selectinputSearch select{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: #3f51b5;
+    padding-left: 1%;
+    margin-bottom: 5px;
+}
+.btninputSearch ul{
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.btninputSearch ul li{
+    list-style: none;
+    width: 50%;
+}
+.btninputSearch ul li button{
+    width: 100%;
+    height: 35px;
+    color: white;
+    margin-bottom: 5px;
+    border: 2px solid white;
+}
+.btninputSearch ul li .btn-search{
+    background-color: #3f51b5;
+}
+.btninputSearch ul li .btn-search:hover{
+    background-color: #283593;
+}
+.btninputSearch ul li .btn-actualiser{
+    background-color: #009688;
+}
+.btninputSearch ul li .btn-actualiser:hover{
+    background-color: #00695c;
+}
+.btnAddinputSearch button{
+    width: 100%;
+    height: 35px;
+    background-color: #1976d2;
+    color: white;
+    margin-bottom: 5px;
+}
+.btnAddinputSearch button:hover{
+    background-color: #0d47a1;
+}
+.pagination{
+    width: 98%;
+    margin: 1%;
+    padding: 1%;
+    border: 2px solid #283593;
+    border-radius: 5px;
+}
+.pagination ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.pagination ul li{
+    list-style: none;
+}
+.pagination ul .li1{
+    width: 80%;
+}
+.pagination ul .li1 select{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: #3f51b5;
+}
+.pagination ul .li1 select{
+    outline: none;
+}
+.pagination ul .li2{
+    width: 20%;
+}
+.pagination ul .li2 button{
+    width: 100%;
+    height: 35px;
+    border: 2px solid #3f51b5;
+    color: white;
+    background-color: #3f51b5;
+}
+.pagination ul .li2 button:hover{
+    background-color: #283593;
+}
+.ulAddRdvRdvPatient{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #607d8b;
+    color: white;
+    text-align: center;
+    min-height: 35px;
+    line-height: 35px;
+    font-size: 17px;
+    border-top: 1px solid white;
+}
+.ulAddRdvRdvPatient li{
+    list-style: none;
+}
+.ulAddRdvRdvPatient .li1{
+    width: 10%;
+    background-color: #009688;
+    cursor: pointer;
+}
+.ulAddRdvRdvPatient .li1:hover{
+    background-color: #00695c;
+}
+.ulAddRdvRdvPatient .li2{
+    width: 80%;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.ulAddRdvRdvPatient .li3{
+    width: 10%;
+}
+ion-icon {
+    font-size: 45px;
+    font-size: 29px;
+    margin-top: 5px;
+}
+.img_user_profilePatient{
+    width: 94%;
+    min-height: 500px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin: 2%;
+    margin-top: 15px;
+    box-shadow: 0px 5px 12px 5px rgb(0 0 0 / 14%);
+    position: relative;
+    padding: 1%;
+}
+.img_user_profilePatient  .photoPatientProfilePatient{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-top: 20px;
+    object-fit: cover;
+    object-position: center right;
+}
+.img_user_profilePatient .nomUtilisateurProfilPatient{
+    font-size: 24px;
+    padding: 20px;
+    font-weight: 700;
+}
+.divdescriptionProfilePatient{
+    text-align: left;
+    padding-left: 15px;
+    font-size: 15px;
+}
+.divdescriptionProfilePatient .description .ionicon{
+    font-size: 15px;
+}
+.tb1TableTable{
+    background-color: #3f51b5 !important;
+    color: white;
+    border: 1px solid #3f51b5 !important;
+    border-bottom: 1px solid white !important;
+}
+.tb2TableTable{
+    border: 1px solid #673ab7;
+}
+.titleTableTable{
+    background-color: #3f51b5!important;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid white !important;
+    border-top: 1px solid white !important;
+}
+.imageVaccinodromeTmp{
+    text-align: center;
+    margin-top: 2%;
+}
+.imageVaccinodromeTmp img{
+    max-width: 200px;
+    max-height: 200px;
+    text-align: center;
+    border-radius: 5px;
+}
+.jourDeLaSemaine{
+    background-color: #009688 !important;
+    font-weight: 600;
+    color: white!important;
+    text-transform: uppercase;
+    font-size: 13px;
+    border: 2px solid #009688 !important;
+    border-bottom: 2px solid white !important;
+}
+.heureOuverture{
+    border-top: 2px solid #009688 !important;
+    border-bottom: 2px solid #009688 !important;
+    color: #009688 !important;
+}
+.horaireDOuvertureSemaine{
+    width: 98%;
+    margin: 1%;
+    padding: 1%;
+}
+.miniTitleHoraireOuvertureSemaine{
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.son_champsUpdateProfilePatient{
+    width: 96%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    padding-top: 10px;
+}
+.formItem_champsUpdateProfilePatient{
+    position: relative;
+    padding-top: 13px;
+}
+.formItem_champsUpdateProfilePatient input,.formItem_champsUpdateProfilePatient textarea, .formItem_champsUpdateProfilePatient select{
+    border: 2px solid #0d6efdcf;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    padding-top: 20px;
+    height: 60px;
+    color : #0d6efdcf;
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+}
+.formItem_champsUpdateProfilePatient input,.formItem_champsUpdateProfilePatient textarea{
+    -webkit-appearance:none;
+}
+.formItem_champsUpdateProfilePatient input::placeholder,.formItem_champsUpdateProfilePatient textarea::placeholder{
+    color : #0d6efdcf;
+}
+.formItem_champsUpdateProfilePatient label{
+    pointer-events: none;
+    position: absolute;
+    left: 15px;
+    transition: all .1s linear;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 13px;
+    top: 0;
+    border-radius: 5px;
+    background-color: #0d6efdcf;
+    color: white;
+}
+.champsAddRdvDemande ul{
+    width: 98%;
+    margin: 1%;
+    padding: 0;
+}
+.champsAddRdvDemande ul .li1{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    padding-left: 1%;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+.champsAddRdvDemande ul .li2{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+.champsAddRdvDemande ul .li2 input,.champsAddRdvDemande ul .li2 select,.champsAddRdvDemande ul .li2 textarea{
+    width: 98%;
+    list-style: none;
+    margin: 1%;
+    background-color: white;
+    color: #1565c0;
+    padding-left: 1%;
+}
+.champsAddRdvDemande ul .li3{
+    list-style: none;
+    width: 100%;
+    min-height: 35px;
+    background-color: #1565c0;
+    line-height: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+}
+.champsAddRdvDemande ul .li3 button{
+    width: 98%;
+    list-style: none;
+    margin: 1%;
+    background-color: #ffc107;
+    font-weight: 700;
+}
+.champsAddRdvDemande ul .li3 button:hover{
+    background-color: #ffa000;
+}
+.tablefamilleTr{
+    color: white !important;
+    background-color: #1565c0 !important;
+    border: 2px solid #1565c0 !important;
+}
+.tablefamilleTrBody{
+    border: 2px solid #1565c0 !important;
+    color: #1565c0 !important;
+}
+.tableFamille{
+    width: 98%;
+    margin: 1%;
+    padding: 1%;
+}
+.btnAddDemandeRdv{
+    width: 98%;
+    margin: 1%;
+    padding: 1%;
+}
+.btnAddDemandeRdv button{
+    width: 100%;
+    background-color: #009688;
+    color: white;
+    min-height: 40px;
+    border-radius: 5px;
+}
+.btnAddDemandeRdv button:hover{
+    background-color: #00695c;
+}

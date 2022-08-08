@@ -1,0 +1,51 @@
+<div class="list-wrapper" ng-app="app" ng-controller="MainCtrl as ctrl">
+  <!-- <ul class="list">
+    <li class="list-item">
+      <div>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/488320/profile/profile-80.jpg" class="list-item-image">
+      </div>
+      <div class="list-item-content">
+        <h4>Hitesh Kumar</h4>
+        <p>@hk-skit</p>
+      </div>
+    </li>
+    <li *ngFor="let data of listDataFamille" class="list-item">
+      <div>
+        <img src="{{data.urlPhoto}}"  class="list-item-image">
+      </div>
+      <div class="list-item-content">
+        <h4>{{data.nom}}</h4>
+        <p>{{data.naissance}}</p>
+      </div>
+    </li>
+  </ul> -->
+  <!-- <div *ngFor="let data of listDataFamille; let index = index;">
+    <h4>{{index}}</h4>
+  </div> -->
+</div>
+<ng-container *ngIf="nnn">
+  <div *ngFor="let mydata of nnn">
+        <div>{{mydata}}</div>
+    </div>
+</ng-container>
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let data of nnn" size-lg="4" size-md="4" size="12" >
+        <ion-card >
+          <img src={{data}}>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/488320/profile/profile-80.jpg">
+          <ion-card-header>
+            <ion-card-title>{{getDataHtmlEviterUndifined(data.nom)}}</ion-card-title>
+          </ion-card-header>
+    
+           <ion-card-content>
+            <div class="description"><span><ion-icon name="male-female-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; <b *ngIf="data.sexe===1">HOMME</b><b *ngIf="data.sexe===2">FEMME</b></div>
+            <div class="description"><span><ion-icon name="person-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; Né le {{getDataHtmlEviterUndifined(data.naissance)}}</div>
+            <div class="description"><span><ion-icon name="mail-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; {{getDataHtmlEviterUndifined(data.positionfamilliale)}}</div>
+          </ion-card-content> 
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content> -->

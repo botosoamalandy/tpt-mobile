@@ -1,0 +1,21 @@
+.clickable {
+    cursor: pointer;
+}
+
+.footer{
+    color: white;
+}
+
+.div_footer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    background-color: #1A2A36;
+    color: #fff;
+}
+
+ion-button[shape=circle]{
+    --border-radius: 25%;   
+}

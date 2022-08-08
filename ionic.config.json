@@ -1,0 +1,7 @@
+{
+  "name": "rdvVaksiny",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

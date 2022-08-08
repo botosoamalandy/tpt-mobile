@@ -1,0 +1,249 @@
+<ion-content>
+  <ul class="ulAddRdvRdvPatient">
+    <li class="li1" (click)="setStepper(1)"><ion-icon [ngClass]="'iconDescription'" name="arrow-back-outline"></ion-icon></li>
+    <li class="li2">Inscription patient</li>
+    <li class="li3"></li>
+  </ul>
+  <div *ngIf="stepper===1">
+    <div class="miniTitleInscriptionPatient">Afin de poursuivre l'inscription, veuillez sélectionner le vaccin qui vous convient</div>
+    <div class="containerSearch">
+      <div class="inputSearch">
+        <input type="text" (change)="changeVaccinSearch($event.target.value)" placeholder="Saisissez votre recherche">
+      </div>
+      <div class="btninputSearch">
+        <ul class="ulbtninputSearch">
+          <li><button class="btn-search" (click)="onSearchLibelleInVaccin()">Rechecher</button></li>
+          <li><button class="btn-actualiser" (click)="onActualiserSearchLibelleInVaccin()">Actualiser</button></li>
+        </ul>
+      </div>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let item of listeVaccin" size-lg="4" size-md="4" size="12" >
+          <div class="pageInner">
+              <div class="">
+                  <div class="elWrapper">
+                      <div class="boxUp">
+                          <img class="imageInboxUp" src={{item.urlPhoto}} alt="image_du_vaccin" />
+                          <div class="">
+                              <div class="infoInner">
+                                  <span class="infoInnerPNname">{{item.nomVaccin}}</span>
+                                  <span class="infoInnerPCompany"></span>
+                              </div>
+                              <div class="descriptionvaccinationasize">
+                                  <div class="descdescriptionvaccinationasize"><div>Description </div> {{item.descriptions}}</div>
+                                  <div class="descdescriptionvaccinationasize"><div>Maladies non compatibles avec le vaccin </div> {{item.maladie}}</div>
+                              </div>
+                          </div>
+                      </div>       
+                      <div class="boxDown">
+                          <div class="boxDownHbg">
+                              <div class="boxDownHbgInner"></div>
+                          </div>           
+                          <a class="cartPrixVaccin" (click)="selectVaccin(item)" >
+                              <span class="price">Séléctionner</span>
+                              <span class="addToCart"><span class="txtVaccin">Séléctionner</span></span>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="pagination">
+      <ul>
+        <li class="li1">
+          <select [(ngModel)]="vaxPage">
+            <option *ngFor="let item of vaccinPage" value={{item.value}}>Page {{item.value+1}}</option>
+          </select>
+        </li>
+        <li class="li2"><button class="btn-primary" (click)="paginationListeVaccin()">Paginer</button> </li>
+      </ul>
+    </div> 
+  </div> 
+
+  <div class="" *ngIf="stepper===2 && dataAvertissementMaladie!==null">
+    <div class="descriptionInscriptionPatient">
+      <div class="des">Pour complétér les informations, veuillez sélectionner le centre de vaccination qui vous convient le mieux</div>
+      <div class="">
+        <b><span class="spantmp">Attention</span>, les maladies suivantes ne sont pas compatibles avec le vaccin :</b> {{dataAvertissementMaladie.message}} </div>
+    </div>
+  </div>
+  <div *ngIf="stepper===2 && dataAvertissementMaladie!==null">
+    <ion-grid >
+      <ion-row>
+        <ion-col *ngFor="let item of listeVaccinodrome" size-lg="4" size-md="4" size="12" >
+          <ion-card (click)="selectionnerVaccinodrome(item)">
+            <div class="imageVaccinodromeTmp"><img src={{item.imgvaccinodrome}}></div>
+            <ion-card-header>
+              <ion-card-title>{{item.nomCentre}}</ion-card-title>
+            </ion-card-header>
+      
+            <ion-card-content>
+              <div class="descriptionRdv">Vaccin : {{item.nomVaccin}}</div>
+              <div class="descriptionRdv">Dose : {{item.nombreDose}}</div>
+              <div class="descriptionRdv">Email  : {{item.email}}</div>
+              <div class="descriptionRdv">Téléphone  : {{item.telephone}}</div>
+              <div class="descriptionRdv">Adresse  : {{item.adresse}}</div>
+              <div class="descriptionRdv">localisation  : {{getLocalisationVaccinodrome(item.adresse)}}</div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+  </div>
+  <div class="pagination" *ngIf="stepper===2 && dataAvertissementMaladie!==null">
+    <ul>
+      <li class="li1">
+        <select [(ngModel)]="vaxDroPage">
+          <option *ngFor="let item of vaccinodromePage" value={{item.value}}>Page {{item.value+1}}</option>
+        </select>
+      </li>
+      <li class="li2"><button class="btn-primary" (click)="paginationListeVaccinodrome()">Paginer</button> </li>
+    </ul>
+  </div> 
+  <div class="" *ngIf="stepper===3">
+    <div class="miniTitleInscriptionPatient">Pour vous inscrire, veuillez fournir les renseignements ci-dessous</div>
+    <div class="">
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Nom</li>
+          <li class="li2"><input type="text" [(ngModel)]="nomP" placeholder="Votre nom"  /></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Date de naissance</li>
+          <li class="li2"><input type="date" [(ngModel)]="naissanceP"  /></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Sexe</li>
+          <li class="li2">
+            <select [(ngModel)]="sexeP">
+              <option value="1">Sexe</option>
+              <option value="1">Homme</option>
+              <option value="2">Femme</option>
+            </select>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Adresse email</li>
+          <li class="li2"><input type="text"  [(ngModel)]="emailP" placeholder="Votre adresse emai" /></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Téléphone</li>
+          <li class="li2"><input type="text" [(ngModel)]="telephoneP" placeholder="Numéro de téléphone" /></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Mot de passe</li>
+          <li class="li2"><input type="password" [(ngModel)]="mdpP" placeholder="Mot de passe (plus de 8 caractère)"  /></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Confirmation Mot de passe</li>
+          <li class="li2"><input type="password" [(ngModel)]="confirmerP" placeholder="Confirmation mot de passe"/></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Photo de profil</li>
+          <li class="li2"><input type="file" (change)="changeImageToBase64($event)" accept="image/png, image/jpeg" /></li>
+        </ul>
+      </div>
+    </div>
+    <div class=""><button class="btn-enregistrement" (click)="enregistrePatient()" >Enregistrer</button></div>
+  </div>
+  <!-- <form [formGroup]="form">
+    <h1>RDV Vaksiny</h1>
+    <h2>Inscription patient</h2>
+    <label>Veuillez remplir le formulaire ci-dessous:</label>
+
+    <ion-item>
+      <ion-label position="floating">Vaccin</ion-label>
+      <ion-select
+        interface="popover"
+        formControlName="vaccin"
+        placeholder="Veuillez choisir votre vaccin"
+      >
+        <ion-select-option *ngFor="let vaccin of vaccins" [value]="vaccin">{{
+          vaccin?.nomVaccin
+        }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Vaccinodrome</ion-label>
+      <ion-select
+        interface="popover"
+        formControlName="vaccinCentre"
+        placeholder="Veuillez choisir votre vaccinodrome"
+      >
+        <ion-select-option *ngFor="let centre of vaccinCentre" [value]="centre"> {{centre?.nomCentre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nom patient</ion-label>
+      <ion-input formControlName="nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Date de naissance</ion-label>
+      <ion-input formControlName="dateDeNaissance" type="bday"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group formControlName="sexe">
+        <ion-list-header>
+          <ion-label>Sexe</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Homme</ion-label>
+          <ion-radio slot="start" [value]="1"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Femme</ion-label>
+          <ion-radio slot="start" [value]="0"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Adresse email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Numéro de téléphone</ion-label>
+      <ion-input formControlName="telephone" type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input formControlName="adresse"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Confirmer mot de passe</ion-label>
+      <ion-input type="password" formControlName="passwordConfirm"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="inscription()">S'inscrire</ion-button>
+  </form> -->
+</ion-content>

@@ -1,0 +1,284 @@
+
+<ion-content>
+  <div>
+    <div class="containerSearch" *ngIf="stepper===1">
+      <div class="inputSearch" *ngIf="listDemandeRdvSearch.colone==='nomVaccinodrome' || this.listDemandeRdvSearch.colone==='nomVaccin'" >
+        <input type="text"  (change)="onChangeLibellerSearch($event.target.value)" placeholder="Saisissez votre recherche">
+      </div>
+      <div class="inputSearch" *ngIf="listDemandeRdvSearch.colone==='dateRdv'" >
+        <input type="date" (change)="onChangeLibellerSearch($event.target.value)" placeholder="Saisissez le vaccinodrome de votre choix">
+      </div>
+      <div class="inputSearch" *ngIf="listDemandeRdvSearch.colone==='statusRdv'" >
+        <select (change)="onChangeLibellerSearchSelect($event.target.value)" >
+          <option value="1">Selectionner l'etat des rendez-vous qui vous plaira</option>
+          <option value="5">Patient vacciné</option>
+          <option value="1">Demande en cours</option>
+          <option value="2">Demande accepter</option>
+          <option value="3">Demande d'annulation</option>
+          <option value="11">Demande de rendez-vous refusé</option>
+      </select>
+      </div>
+      <div class="selectinputSearch">
+        <select (change)="onChangeSelectSearch($event.target.value)">
+            <option value="nomVaccinodrome">Vaccinodrome</option>
+            <option value="nomVaccin">Vaccin</option>
+            <option value="dateRdv">Date</option>
+            <option value="statusRdv">Etat</option>
+        </select>
+      </div>
+      <div class="btninputSearch">
+        <ul class="ulbtninputSearch">
+          <li><button class="btn-search" (click)="searchDataInList()">Rechecher</button></li>
+          <li><button class="btn-actualiser" (click)="refreshList()">Actualiser</button></li>
+        </ul>
+      </div>
+      <div class="btnAddinputSearch"><button class="btn-search" (click)="ajouterNouvelleDemandeRdv()">AJOUTER</button></div>
+    </div>
+    <ion-grid *ngIf="stepper===1">
+      <ion-row>
+        <ion-col *ngFor="let item of listDataRdv" size-lg="4" size-md="4" size="12" >
+          <ion-card >
+            <div class="imageVaccinodromeTmp"><img src={{item.imgVaccinodrome}}></div>
+            <ion-card-header>
+              <ion-card-title>{{item.nomVaccinodrome}}</ion-card-title>
+            </ion-card-header>
+      
+            <ion-card-content>
+              <div class="descriptionRdv">Vaccin : {{item.nomVaccin}}</div>
+              <div class="descriptionRdv">Dose : {{item.dose}} / {{item.nombreDose}}</div>
+              <div class="descriptionRdv">Date  : {{item.dateRdv}}</div>
+              <div class="descriptionRdv">Personne à vacciner : {{item.famille + 1}}</div>
+              <div class="descriptionRdv">Etat : 
+                <span *ngIf="item.statusRdv===1" >Demande en cours</span>
+                <span *ngIf="item.statusRdv===11" >Rendez-vous refusé</span>
+                <span *ngIf="item.statusRdv===5" >vacciné</span>
+                <span *ngIf="item.statusRdv===3" >Demande d'annulation</span>
+                <span *ngIf="item.statusRdv===2" >Demande accepter</span>
+              </div>
+              <div>
+                <ul class="ulBtnRdv" *ngIf="item.statusRdv===1">
+                  <li><button class="btn-voir" (click)="voirDetailDeRdv(item.idDemandeRdv)">Détails</button></li>
+                  <li><button class="btn-supprimer" (click)="deleteRdvStatusOne(item.idDemandeRdv)">Supprimer</button></li>
+                </ul>
+                <ul class="ulBtnRdv" *ngIf="item.statusRdv===2">
+                  <li><button class="btn-voir" (click)="voirDetailDeRdv(item.idDemandeRdv)">Détails</button></li>
+                  <li><button class="btn-supprimer" (click)="deleteRdvStatusTwo(item.idDemandeRdv)">Annuler</button></li>
+                </ul>
+                <ul class="ulBtnRdvTmp" *ngIf="item.statusRdv===3">
+                  <li><button class="btn-voir" (click)="voirDetailDeRdv(item.idDemandeRdv)">Détails</button></li>
+                  <li><button class="btn-restaurer" (click)="deleteRdvStatusOne(item.restaurationDemandeRdvAnnuler)">Restaurer</button></li>
+                  <li><button class="btn-supprimer" (click)="deleteRdvStatusOne(item.idDemandeRdv)">Supprimer</button></li>
+                </ul>
+                <button className="btn-primary form-control" *ngIf="item.statusRdv===5" (click)="voirDetailDeRdv(item.idDemandeRdv)" >Détail</button>
+                <button className="btn-danger form-control" *ngIf="item.statusRdv===11" (click)="deleteRdvStatusOne(item.idDemandeRdv)">Supprimer</button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+    <div class="pagination" *ngIf="stepper===1">
+      <ul>
+        <li class="li1">
+          <select [(ngModel)]="sPage">
+            <option *ngFor="let item of nPage" value={{item.value}}>Page {{item.value+1}}</option>
+          </select>
+        </li>
+        <li class="li2"><button class="btn-primary" (click)="paginationListeDemandeRdv()">Paginer</button> </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="stepper===2 && infoDemandeRdv!==null">
+    <ul class="ulAddRdvRdvPatient">
+      <li class="li1" (click)="setStepper(1)"><ion-icon [ngClass]="'iconDescription'" name="arrow-back-outline"></ion-icon></li>
+      <li class="li2">Détail du rendez-vous</li>
+      <li class="li3"></li>
+    </ul>
+    <div class="containerUserProfile">
+      <div class="img_user_profilePatient" >
+        <img src={{infoDemandeRdv.vaccinodrome.urlPhoto}} alt="photo_vaccinodrome" class="photoPatientProfilePatient"/>
+        <div class="nomUtilisateurProfilPatient">{{infoDemandeRdv.vaccinodrome.nomCentre}}</div>
+        <div class="divdescriptionProfilePatient"> 
+          
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td class="tb1TableTable">Email</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.vaccinodrome.email}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Téléphone</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.vaccinodrome.telephone}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Adresse</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.vaccinodrome.adresse}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Localisation</td>
+                  <td class="tb2TableTable">
+                    <div *ngFor="let data of getLocalisationVaccinodrome(infoDemandeRdv.vaccinodrome.localisation)">{{data}}</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="titleTableTable">Vaccin</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Vaccin</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.vaccin.nomVaccin}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Dose</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.demandeRdv.dose}} / {{infoDemandeRdv.vaccinCentre.nombreDose}}</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="titleTableTable">Rendez-vous</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Date RDV</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.demandeRdv.dateRdv}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Personner</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.demandeRdv.famille + 1}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Description</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.demandeRdv.descriptions}}</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="titleTableTable">Patient</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Nom </td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.utilisateur.nom}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Sexe</td>
+                  <td class="tb2TableTable">
+                    <span *ngIf="infoDemandeRdv.utilisateur.sexe===1">Homme</span>
+                    <span *ngIf="infoDemandeRdv.utilisateur.sexe===2">Femme</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Né(e) le</td>
+                  <td class="tb2TableTable">{{getDateNormal(infoDemandeRdv.utilisateur.naissance)}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Email</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.utilisateur.nom}}</td>
+                </tr>
+                <tr>
+                  <td class="tb1TableTable">Téléphone</td>
+                  <td class="tb2TableTable">{{infoDemandeRdv.utilisateur.telephone}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="" *ngIf="stepper===3 && infoVaccinUser!==null && vaccin!==null && vaccinodrome!==null && vaccinCentre!==null && utilisateur!==null && famille!==null && horaireVaccinodrome.length ===7">
+    <ul class="ulAddRdvRdvPatient">
+      <li class="li1" (click)="setStepper(1)"><ion-icon [ngClass]="'iconDescription'" name="arrow-back-outline"></ion-icon></li>
+      <li class="li2">Demande d'un nouvel rendez-vous</li>
+      <li class="li3"></li>
+    </ul>
+    <div>
+      <div class="horaireDOuvertureSemaine">
+        <div class="miniTitleHoraireOuvertureSemaine">Horaire vaccinodrome</div>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr *ngFor="let data of horaireVaccinodrome">
+                <td class="jourDeLaSemaine">{{week[data.jour]}}</td>
+                <td class="heureOuverture">{{getAffichageHoraireVaccinodrome(data.matinDebut,data.matinFin)}}</td>
+                <td class="heureOuverture">{{getAffichageHoraireVaccinodrome(data.midiDebut,data.midiFin)}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+    <div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Vaccinodrome</li>
+          <li class="li2"><input type="text" value={{vaccinodrome.nomCentre}} disabled/></li>
+          <li class="li3"><button (click)="onChangeVaccinodrome()">Changer de vaccinodrome</button></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Vaccin</li>
+          <li class="li2"><input type="text" value={{vaccin.nomVaccin}} disabled/></li>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Vous étez à combien de dose ?</li>
+          <li class="li2">
+            <select (change)="changeDoseRdv($event.target.value)">
+              <option value={0}>N émé dose</option>
+              <option *ngFor="let data of createTableauNumberSelect(0, vaccinCentre.nombreDose)" value={{data.value+1}}>{{data.value+1}}</option>
+            </select>
+        </ul>
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Date du rendez-vous</li>
+          <li class="li2"><input type="date" [(ngModel)]="dateRdv" /></li>
+        </ul>
+      </div>
+      <div>{{setDateRdv(horaireVaccinodrome)}}</div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Pour qui est ce rendez-vous</li>
+          <li class="li2">
+            <select (change)="changeSelectFamille($event.target.value)" >
+              <option value="0">Sélectionner votre choix</option>
+              <option value="1">Pour moi</option>
+              <option value="2" *ngIf="famille.length>0 ">Pour moi et ma famille</option>
+            </select>
+        </ul>
+      </div>
+      <div *ngIf="familleAdd === '2'" class="tableFamille">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr class="tablefamilleTr">
+                <th>Nom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of famille" class="tablefamilleTrBody">
+                <td >{{data.nom}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      <div class="champsAddRdvDemande">
+        <ul>
+          <li class="li1">Description du rendez-vous</li>
+          <li class="li2"><textarea rows="3" [(ngModel)]="description" ></textarea></li>
+        </ul>
+      </div>
+      <div class="btnAddDemandeRdv"><button className="btn-primary form-control" (click)="enregistrerRdv(infoVaccinUser,vaccin,vaccinodrome,vaccinCentre,utilisateur,famille,horaireVaccinodrome)">Envoyer la demande de rendez-vous</button></div>
+    </div>
+
+  </div>
+  <div *ngIf="stepper===4">
+    <ul class="ulAddRdvRdvPatient">
+      <li class="li1" (click)="setStepper(1)"><ion-icon [ngClass]="'iconDescription'" name="arrow-back-outline"></ion-icon></li>
+      <li class="li2">Changer de vaccinodrome</li>
+      <li class="li3"></li>
+    </ul>
+    <h1>Changer de vaccinodrome</h1>
+  </div>
+</ion-content>
+  

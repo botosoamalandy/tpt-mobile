@@ -1,0 +1,66 @@
+<div class="containerUserProfile" *ngIf="utilisateur!==null && utilisateur!==undefined && stepper === 1">
+  <div class="img_user_profilePatient" >
+    <img src={{utilisateur.urlPhoto}} alt="photo_patient" class="photoPatientProfilePatient"/>
+    <div class="nomUtilisateurProfilPatient">{{utilisateur.nom}}</div>
+    <div class="divdescriptionProfilePatient"> 
+      <div class="description"><span><ion-icon [ngClass]="'iconDescription'" name="male-female-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; <b *ngIf="utilisateur.sexe===1">HOMME</b><b *ngIf="utilisateur.sexe===2">FEMME</b></div>
+      <div class="description"><span><ion-icon [ngClass]="'iconDescription'" name="person-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; Né le {{getDateCompletByNaissance()}}</div>
+      <div class="description"><span><ion-icon [ngClass]="'iconDescription'" name="mail-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; {{utilisateur.email}}</div>
+      <div class="description"><span><ion-icon [ngClass]="'iconDescription'" name="call-outline"></ion-icon></span> &nbsp;&nbsp;&nbsp; {{utilisateur.telephone}}</div>
+    </div>
+    <div class="btnModificationProfilePatient"><button class="btnProfilePatient" (click)="setStepper(2)">Modifier</button></div>
+  </div>
+</div>
+<div class="containerUserProfile" *ngIf="utilisateur===null || utilisateur===undefined">
+  <div class="container_profile_null">Le serveur ne fonctionne plus, veuillez actualiser la page</div>
+</div>
+<div class="containerUserProfile" *ngIf="utilisateur!==null && utilisateur!==undefined && stepper === 2">
+  <div class="divrowAndContainerTwo">
+      <div class="divrowAndContainerTwotitle">Modification des informations</div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <input  [(ngModel)]="nomUser" type="text" placeholder=" Nom du patient"/>
+              <label>Nom</label>
+          </div>
+      </div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <select [(ngModel)]="sexeUser">
+                  <option value="0">Votre sexe</option>
+                  <option value="1">Homme</option>
+                  <option value="2">Femme</option>
+              </select>
+              <label>Sexe</label>
+          </div>
+      </div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <input [(ngModel)]="naissanceUser" type="date" placeholder=""/>
+              <label>Date de naissance</label>
+          </div>
+      </div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <input type="email" [(ngModel)]="emailUser" placeholder="Email patient"/>
+              <label>Email</label>
+          </div>
+      </div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <input type="text" [(ngModel)]="telephoneUser" placeholder="Numéro de téléphone"/>
+              <label>Téléphone</label>
+          </div>
+      </div>
+      <div class="son_champsUpdateProfilePatient">
+          <div class="formItem_champsUpdateProfilePatient">
+              <input  type="file" placeholder="Numéro de téléphone" (change)="changeImageUtilisateur($event)"/>
+              <label>Photo</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12"><button class="btnchampsUpdateProfilePatient" (click)="enregistrerUserData()">Enregistrer</button></div>
+          <div class="col-md-6 col-sm-6 col-xs-12"><button class="btn2champsUpdateProfilePatient" (click)="setStepper(1)">Annuler</button></div>
+      </div>
+      
+  </div>
+</div>
